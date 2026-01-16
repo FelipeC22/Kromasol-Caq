@@ -1,0 +1,461 @@
+/* VARIABLES Y RESET */
+:root {
+    --primary-color: #D32F2F; /* Rojo intenso estilo Kromasol */
+    --secondary-color: #212121; /* Negro suave */
+    --accent-color: #FFC107; /* Dorado para incentivos */
+    --light-bg: #F5F5F5;
+    --white: #FFFFFF;
+    --text-color: #333333;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* UTILIDADES */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* HEADER */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.logo .highlight {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.btn-nav {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Imagen de fitness genérica */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: 70px; /* Offset del header */
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TITULOS DE SECCION */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0 auto;
+}
+
+.white-line {
+    background-color: var(--white);
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.text-white h3 {
+    color: var(--white) !important;
+}
+
+/* SOBRE NOSOTROS */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex: 1;
+}
+
+.stat-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* PRODUCTOS */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+}
+
+.product-info ul {
+    list-style: none;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.product-info ul li i {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+/* NEGOCIO */
+.business-bg {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.benefit-item {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.benefit-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.cta-center {
+    text-align: center;
+}
+
+/* TESTIMONIOS */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.quote {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.author {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* FOOTER */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: var(--primary-color);
+}
+
+.whatsapp-btn-footer {
+    display: inline-block;
+    background-color: #25D366;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.footer-bottom {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+}
+
+.disclaimer {
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* BOTON FLOTANTE WHATSAPP */
+.float-wa {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.float-wa:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 70px;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        margin: 30px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .float-wa {
+        bottom: 20px;
+        right: 20px;
+    }
+}
